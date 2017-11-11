@@ -55,7 +55,7 @@ SELECT
     COUNT(*) AS CountEmployees
     FROM Departments D
 INNER JOIN Employees E
-ON D.DEPARTMENT_Id = E.DEPARTMENT_Id  GROUP BY E.DEPARTMENT_ID;
+ON D.DEPARTMENT_Id = E.DEPARTMENT_Id  GROUP BY E.DEPARTMENT_ID ORDER BY DEPARTMENT_NAME;
 
 #Write a query to display the department name (Departments.DEPARTMENT_NAME), manager name (Employees.FIRST_NAME), and city (Locations.CITY).
 
@@ -80,7 +80,7 @@ from Departments D
 INNER JOIN Employees E
 ON D.MANAGER_ID = E.MANAGER_ID
 INNER JOIN Locations L
-ON D.LOCATION_ID = L.LOCATION_ID;
+ON D.LOCATION_ID = L.LOCATION_ID ORDER by FIRST_NAME;
 
 #Write a query to display the job title (Jobs.JOBS_TITLE) and average salary (Employees.SALARY) of employees.
 
@@ -89,9 +89,9 @@ SELECT
     AVG(SALARY) AS Average
 FROM Jobs J
 INNER JOIN Employees E
-ON J.JOB_ID = E.JOB_ID GROUP BY E.JOB_ID;
+ON J.JOB_ID = E.JOB_ID GROUP BY E.JOB_ID ORDER BY JOB_TITLE;
 
 #Write a query to display the job history (JobsHistory) that were done by any employee (Employees) who is currently earning more than 10000 of salary (Employees.SALARY).
 
 SELECT * FROM JobHistory
-WHERE EMPLOYEE_ID IN (SELECT EMPLOYEE_ID FROM Employees WHERE SALARY > 10000);
+WHERE EMPLOYEE_ID IN (SELECT EMPLOYEE_ID FROM Employees WHERE SALARY > 10000) ORDER BY EMPLOYEE_ID;
